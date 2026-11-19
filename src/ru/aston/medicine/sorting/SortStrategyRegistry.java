@@ -23,6 +23,8 @@ public class SortStrategyRegistry {
     // Метод получения стратегии сортировки по имени стратегии сортировки
     // Args:
     //      nameSortStrategy (String): Имя стратегии сортировки
+    // Return:
+    //      (SortStrategy): Стратегия сортировки с именем nameSortStrategy
     public static SortStrategy get(String nameSortStrategy) {
         Supplier<SortStrategy> supplier = REGISTRY.get(nameSortStrategy);
         if(supplier == null) {
