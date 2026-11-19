@@ -37,6 +37,8 @@ public class SortStrategyRegistry {
     }
 
     // Метод получения множества имен всех стратегий сортировки, указанных в реестре
+    // Return:
+    //      (Set<String>): Множество имен всех стратегий сортировки, указанных в реестре
     public static Set<String> getNamesAllStrategies() {
         return REGISTRY.keySet();
     }
