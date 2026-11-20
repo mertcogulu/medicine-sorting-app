@@ -249,4 +249,100 @@ class TestSortStrategy {
 
     }
 
+    // Метод тестирования каждой стратегии сортировки из реестра по полю "name" для списка из одного элемента
+    // Args:
+    //      sortStrategy (SortStrategy): Стратегия сортировки, которую нужно протестировать
+    // @ParameterizedTest - запустить этот метод несколько раз, каждый раз передавая ему новые входные данные
+    @ParameterizedTest
+    // @MethodSource("methodSource") - входные данные для этого метода взять из метода methodSource
+    @MethodSource("strategyProvider")
+    void testSortStrategiesByNameForSingleElement(SortStrategy sortStrategy) {
+
+        // Создаем 1 лекарство
+        Medicine trueMedicine = new Medicine("Ацикловир", 70, 1000);
+
+        // Создаем список лекарств из одного элемента
+        List<Medicine> medicines = new ArrayList<>(List.of(trueMedicine));
+
+        // Создаем сортировщика
+        Sorter sorter = new Sorter(sortStrategy);
+
+        // Сортируем список medicines по полю "name"
+        sorter.sort(medicines, MedicineComparators.byName);
+
+        // Проверяем, что в отсортированном списке 1 элемент
+        assertEquals(1, medicines.size());
+
+        // Получаем элемент из отсортированного списка
+        Medicine actualMedicine = medicines.getFirst();
+
+        // Проверяем, что в отсортированном списке тот самый элемент, который был в неотсортированном
+        assertEquals(trueMedicine, actualMedicine);
+
+    }
+
+    // Метод тестирования каждой стратегии сортировки из реестра по полю "shelfLifeDays" для списка из одного элемента
+    // Args:
+    //      sortStrategy (SortStrategy): Стратегия сортировки, которую нужно протестировать
+    // @ParameterizedTest - запустить этот метод несколько раз, каждый раз передавая ему новые входные данные
+    @ParameterizedTest
+    // @MethodSource("methodSource") - входные данные для этого метода взять из метода methodSource
+    @MethodSource("strategyProvider")
+    void testSortStrategiesByShelfLifeDaysForSingleElement(SortStrategy sortStrategy) {
+
+        // Создаем 1 лекарство
+        Medicine trueMedicine = new Medicine("Ацикловир", 70, 1000);
+
+        // Создаем список лекарств из одного элемента
+        List<Medicine> medicines = new ArrayList<>(List.of(trueMedicine));
+
+        // Создаем сортировщика
+        Sorter sorter = new Sorter(sortStrategy);
+
+        // Сортируем список medicines по полю "shelfLifeDays"
+        sorter.sort(medicines, MedicineComparators.byShelfLifeDays);
+
+        // Проверяем, что в отсортированном списке 1 элемент
+        assertEquals(1, medicines.size());
+
+        // Получаем элемент из отсортированного списка
+        Medicine actualMedicine = medicines.getFirst();
+
+        // Проверяем, что в отсортированном списке тот самый элемент, который был в неотсортированном
+        assertEquals(trueMedicine, actualMedicine);
+
+    }
+
+    // Метод тестирования каждой стратегии сортировки из реестра по полю "price" для списка из одного элемента
+    // Args:
+    //      sortStrategy (SortStrategy): Стратегия сортировки, которую нужно протестировать
+    // @ParameterizedTest - запустить этот метод несколько раз, каждый раз передавая ему новые входные данные
+    @ParameterizedTest
+    // @MethodSource("methodSource") - входные данные для этого метода взять из метода methodSource
+    @MethodSource("strategyProvider")
+    void testSortStrategiesByPriceForSingleElement(SortStrategy sortStrategy) {
+
+        // Создаем 1 лекарство
+        Medicine trueMedicine = new Medicine("Ацикловир", 70, 1000);
+
+        // Создаем список лекарств из одного элемента
+        List<Medicine> medicines = new ArrayList<>(List.of(trueMedicine));
+
+        // Создаем сортировщика
+        Sorter sorter = new Sorter(sortStrategy);
+
+        // Сортируем список medicines по полю "price"
+        sorter.sort(medicines, MedicineComparators.byPrice);
+
+        // Проверяем, что в отсортированном списке 1 элемент
+        assertEquals(1, medicines.size());
+
+        // Получаем элемент из отсортированного списка
+        Medicine actualMedicine = medicines.getFirst();
+
+        // Проверяем, что в отсортированном списке тот самый элемент, который был в неотсортированном
+        assertEquals(trueMedicine, actualMedicine);
+
+    }
+
 }
