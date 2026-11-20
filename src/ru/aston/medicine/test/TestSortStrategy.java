@@ -180,4 +180,73 @@ class TestSortStrategy {
 
     }
 
+    // Метод тестирования каждой стратегии сортировки из реестра по полю "name" для пустого списка
+    // Args:
+    //      sortStrategy (SortStrategy): Стратегия сортировки, которую нужно протестировать
+    // @ParameterizedTest - запустить этот метод несколько раз, каждый раз передавая ему новые входные данные
+    @ParameterizedTest
+    // @MethodSource("methodSource") - входные данные для этого метода взять из метода methodSource
+    @MethodSource("strategyProvider")
+    void testSortStrategiesByNameForEmptyList(SortStrategy sortStrategy) {
+
+        // Создаем пустой список лекарств
+        List<Medicine> medicines = new ArrayList<>();
+
+        // Создаем сортировщика
+        Sorter sorter = new Sorter(sortStrategy);
+
+        // Сортируем список medicines по полю "name"
+        sorter.sort(medicines, MedicineComparators.byName);
+
+        // Проверяем, отсортированный список является пустым
+        assertTrue(medicines.isEmpty());
+
+    }
+
+    // Метод тестирования каждой стратегии сортировки из реестра по полю "shelfLifeDays" для пустого списка
+    // Args:
+    //      sortStrategy (SortStrategy): Стратегия сортировки, которую нужно протестировать
+    // @ParameterizedTest - запустить этот метод несколько раз, каждый раз передавая ему новые входные данные
+    @ParameterizedTest
+    // @MethodSource("methodSource") - входные данные для этого метода взять из метода methodSource
+    @MethodSource("strategyProvider")
+    void testSortStrategiesByShelfLifeDaysForEmptyList(SortStrategy sortStrategy) {
+
+        // Создаем пустой список лекарств
+        List<Medicine> medicines = new ArrayList<>();
+
+        // Создаем сортировщика
+        Sorter sorter = new Sorter(sortStrategy);
+
+        // Сортируем список medicines по полю "shelfLifeDays"
+        sorter.sort(medicines, MedicineComparators.byShelfLifeDays);
+
+        // Проверяем, отсортированный список является пустым
+        assertTrue(medicines.isEmpty());
+
+    }
+
+    // Метод тестирования каждой стратегии сортировки из реестра по полю "price" для пустого списка
+    // Args:
+    //      sortStrategy (SortStrategy): Стратегия сортировки, которую нужно протестировать
+    // @ParameterizedTest - запустить этот метод несколько раз, каждый раз передавая ему новые входные данные
+    @ParameterizedTest
+    // @MethodSource("methodSource") - входные данные для этого метода взять из метода methodSource
+    @MethodSource("strategyProvider")
+    void testSortStrategiesByPriceForEmptyList(SortStrategy sortStrategy) {
+
+        // Создаем пустой список лекарств
+        List<Medicine> medicines = new ArrayList<>();
+
+        // Создаем сортировщика
+        Sorter sorter = new Sorter(sortStrategy);
+
+        // Сортируем список medicines по полю "price"
+        sorter.sort(medicines, MedicineComparators.byPrice);
+
+        // Проверяем, отсортированный список является пустым
+        assertTrue(medicines.isEmpty());
+
+    }
+
 }
