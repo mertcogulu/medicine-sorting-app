@@ -74,4 +74,57 @@ class TestSortStrategy {
 
     }
 
+    // Метод тестирования каждой стратегии сортировки из реестра по полю "shelfLifeDays"
+    // Args:
+    //      sortStrategy (SortStrategy): Стратегия сортировки, которую нужно протестировать
+    // @ParameterizedTest - запустить этот метод несколько раз, каждый раз передавая ему новые входные данные
+    @ParameterizedTest
+    // @MethodSource("methodSource") - входные данные для этого метода взять из метода methodSource
+    @MethodSource("strategyProvider")
+    void testSortStrategiesByShelfLifeDays(SortStrategy sortStrategy) {
+
+        // Создаем 10 объектов класса "ru.aston.medicine.model.Medicine" и помещаем их в список
+        List<Medicine> medicines = List.of(
+                new Medicine("Ибупрофен", 365, 250),
+                new Medicine("Глицин", 30, 78),
+                new Medicine("Ацикловир", 70, 1000),
+                new Medicine("Метронидазол", 500, 653),
+                new Medicine("Кетопрофен", 730, 684),
+                new Medicine("Бисопролол", 20, 56),
+                new Medicine("Диклофенак", 120, 255),
+                new Medicine("Лидокаин", 1460, 2500),
+                new Medicine("Верапамил", 180, 200),
+                new Medicine("Дротаверин", 300, 285)
+        );
+
+        // Создаем сортировщика
+        Sorter sorter = new Sorter(sortStrategy);
+
+        // Сортируем список medicines по полю "shelfLifeDays"
+        sorter.sort(medicines, MedicineComparators.byShelfLifeDays);
+
+        // Получим список полей "shelfLifeDays" объектов списка medicines в отсортированном по полю "shelfLifeDays" порядке
+        List<Integer> actualShelfLifeDays = medicines.stream()
+                .map(Medicine::shelfLifeDays)
+                .toList();
+
+        // Создаем истинный список полей "shelfLifeDays"
+        List<Integer> trueShelfLifeDays = List.of(
+                20,
+                30,
+                70,
+                120,
+                180,
+                300,
+                365,
+                500,
+                730,
+                1460
+        );
+
+        // Сравниваем истинный список полей "shelfLifeDays" с реальным
+        assertEquals(trueShelfLifeDays, actualShelfLifeDays);
+
+    }
+
 }
