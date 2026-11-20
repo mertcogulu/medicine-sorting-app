@@ -127,4 +127,57 @@ class TestSortStrategy {
 
     }
 
+    // Метод тестирования каждой стратегии сортировки из реестра по полю "price"
+    // Args:
+    //      sortStrategy (SortStrategy): Стратегия сортировки, которую нужно протестировать
+    // @ParameterizedTest - запустить этот метод несколько раз, каждый раз передавая ему новые входные данные
+    @ParameterizedTest
+    // @MethodSource("methodSource") - входные данные для этого метода взять из метода methodSource
+    @MethodSource("strategyProvider")
+    void testSortStrategiesByPrice(SortStrategy sortStrategy) {
+
+        // Создаем 10 объектов класса "ru.aston.medicine.model.Medicine" и помещаем их в список
+        List<Medicine> medicines = List.of(
+                new Medicine("Ибупрофен", 365, 250),
+                new Medicine("Глицин", 30, 78),
+                new Medicine("Ацикловир", 70, 1000),
+                new Medicine("Метронидазол", 500, 653),
+                new Medicine("Кетопрофен", 730, 684),
+                new Medicine("Бисопролол", 20, 56),
+                new Medicine("Диклофенак", 120, 255),
+                new Medicine("Лидокаин", 1460, 2500),
+                new Medicine("Верапамил", 180, 200),
+                new Medicine("Дротаверин", 300, 285)
+        );
+
+        // Создаем сортировщика
+        Sorter sorter = new Sorter(sortStrategy);
+
+        // Сортируем список medicines по полю "price"
+        sorter.sort(medicines, MedicineComparators.byPrice);
+
+        // Получим список полей "price" объектов списка medicines в отсортированном по полю "price" порядке
+        List<Integer> actualPrice = medicines.stream()
+                .map(Medicine::price)
+                .toList();
+
+        // Создаем истинный список полей "price"
+        List<Integer> truePrice = List.of(
+                56,
+                78,
+                200,
+                250,
+                255,
+                285,
+                653,
+                684,
+                1000,
+                2500
+        );
+
+        // Сравниваем истинный список полей "price" с реальным
+        assertEquals(truePrice, actualPrice);
+
+    }
+
 }
