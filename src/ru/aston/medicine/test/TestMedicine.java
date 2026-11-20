@@ -15,7 +15,11 @@ class TestMedicine {
     @Test
     void testCreateMedicine() {
         // Создаем объект класса "ru.aston.medicine.model.Medicine"
-        Medicine medicine = new Medicine("Парацетамол", 730, 100);
+        Medicine medicine = new Medicine.Builder()
+                .name("Парацетамол")
+                .shelfLifeDays(730)
+                .price(100)
+                .build();
         // Проверяем, правильные ли значения были присвоены полям объекта medicine
         // assertEquals(trueValue, actualValue) - сравнивает ЗНАЧЕНИЯ (НЕ ССЫЛКИ) trueValue и actualValue:
         // - если trueValue == actualValue - тест выполняется дальше;
