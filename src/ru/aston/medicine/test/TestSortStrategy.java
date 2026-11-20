@@ -6,7 +6,7 @@ import java.util.stream.Stream;
 import ru.aston.medicine.sorting.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import java.util.List;
+import java.util.*;
 import ru.aston.medicine.model.Medicine;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -31,7 +31,7 @@ class TestSortStrategy {
     void testSortStrategiesByName(SortStrategy sortStrategy) {
 
         // Создаем 10 объектов класса "ru.aston.medicine.model.Medicine" и помещаем их в список
-        List<Medicine> medicines = List.of(
+        List<Medicine> medicines = new ArrayList<>(List.of(
                 new Medicine("Ибупрофен", 365, 250),
                 new Medicine("Глицин", 30, 78),
                 new Medicine("Ацикловир", 70, 1000),
@@ -42,7 +42,7 @@ class TestSortStrategy {
                 new Medicine("Лидокаин", 1460, 2500),
                 new Medicine("Верапамил", 180, 200),
                 new Medicine("Дротаверин", 300, 285)
-        );
+        ));
 
         // Создаем сортировщика
         Sorter sorter = new Sorter(sortStrategy);
@@ -84,7 +84,7 @@ class TestSortStrategy {
     void testSortStrategiesByShelfLifeDays(SortStrategy sortStrategy) {
 
         // Создаем 10 объектов класса "ru.aston.medicine.model.Medicine" и помещаем их в список
-        List<Medicine> medicines = List.of(
+        List<Medicine> medicines = new ArrayList<>(List.of(
                 new Medicine("Ибупрофен", 365, 250),
                 new Medicine("Глицин", 30, 78),
                 new Medicine("Ацикловир", 70, 1000),
@@ -95,7 +95,7 @@ class TestSortStrategy {
                 new Medicine("Лидокаин", 1460, 2500),
                 new Medicine("Верапамил", 180, 200),
                 new Medicine("Дротаверин", 300, 285)
-        );
+        ));
 
         // Создаем сортировщика
         Sorter sorter = new Sorter(sortStrategy);
@@ -137,7 +137,7 @@ class TestSortStrategy {
     void testSortStrategiesByPrice(SortStrategy sortStrategy) {
 
         // Создаем 10 объектов класса "ru.aston.medicine.model.Medicine" и помещаем их в список
-        List<Medicine> medicines = List.of(
+        List<Medicine> medicines = new ArrayList<>(List.of(
                 new Medicine("Ибупрофен", 365, 250),
                 new Medicine("Глицин", 30, 78),
                 new Medicine("Ацикловир", 70, 1000),
@@ -148,7 +148,7 @@ class TestSortStrategy {
                 new Medicine("Лидокаин", 1460, 2500),
                 new Medicine("Верапамил", 180, 200),
                 new Medicine("Дротаверин", 300, 285)
-        );
+        ));
 
         // Создаем сортировщика
         Sorter sorter = new Sorter(sortStrategy);
