@@ -24,16 +24,16 @@ public class Program {
 
         // Кладём все лекарства в список
         List<Medicine> medicines = new ArrayList<>();
-        medicines.add(m1);
-        medicines.add(m2);
-        medicines.add(m3);
-        medicines.add(m4);
-        medicines.add(m5);
-        medicines.add(m6);
-        medicines.add(m7);
-        medicines.add(m8);
         medicines.add(m9);
         medicines.add(m10);
+        medicines.add(m7);
+        medicines.add(m8);
+        medicines.add(m6);
+        medicines.add(m1);
+        medicines.add(m2);
+        medicines.add(m4);
+        medicines.add(m3);
+        medicines.add(m5);
 
         // Выводим список лекарств
         print(medicines);
@@ -45,7 +45,10 @@ public class Program {
         Sorter sorter = new Sorter(sortStrategy);
 
         // Сортируем по сроку годности
-        sorter.sort(medicines, MedicineComparators.byShelfLifeDays);
+        // sorter.sort(medicines, MedicineComparators.byShelfLifeDays);
+
+        // Сортируем только четные объекты списка
+        sorter.sortEvenShelfLifeDays(medicines);
 
         // Выводим список лекарств
         print(medicines);
