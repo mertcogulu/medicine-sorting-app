@@ -38,4 +38,15 @@ public final class Sorter {
         this.sortStrategy.sort(medicines, comparator);
     }
 
+    // Метод сортировки только объектов класса с четными значениями числового поля "shelfLifeDays"
+    // (объекты с нечетными значениями числового поля остаются на месте)
+    // Args:
+    //      medicines (List<Medicine>): Список лекарств, который нужно отсортировать
+    public void sortEvenShelfLifeDays(List<Medicine> medicines) {
+        // Проверяем список medicines на != null
+        Objects.requireNonNull(medicines, "medicines");
+        // Сортируем
+        this.sortStrategy.sortEvenShelfLifeDays(medicines);
+    }
+
 }
