@@ -2,7 +2,7 @@
 package ru.aston.medicine.sorting;
 
 // Импорт пакетов
-import java.util.Map;
+import java.util.*;
 import java.util.function.Supplier;
 
 // Класс "Реестр стратегий сортировки"
@@ -23,6 +23,8 @@ public class SortStrategyRegistry {
     // Метод получения стратегии сортировки по имени стратегии сортировки
     // Args:
     //      nameSortStrategy (String): Имя стратегии сортировки
+    // Return:
+    //      (SortStrategy): Стратегия сортировки с именем nameSortStrategy
     public static SortStrategy get(String nameSortStrategy) {
         Supplier<SortStrategy> supplier = REGISTRY.get(nameSortStrategy);
         if(supplier == null) {
@@ -32,6 +34,13 @@ public class SortStrategyRegistry {
             );
         }
         return supplier.get();
+    }
+
+    // Метод получения множества имен всех стратегий сортировки, указанных в реестре
+    // Return:
+    //      (Set<String>): Множество имен всех стратегий сортировки, указанных в реестре
+    public static Set<String> getNamesAllStrategies() {
+        return REGISTRY.keySet();
     }
 
 }
