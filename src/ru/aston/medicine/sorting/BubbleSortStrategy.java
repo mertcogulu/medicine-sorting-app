@@ -30,29 +30,6 @@ public class BubbleSortStrategy implements SortStrategy {
         }
     }
 
-    // Метод сортировки только объектов класса с четными значениями числового поля "shelfLifeDays"
-    // (объекты с нечетными значениями числового поля остаются на месте)
-    // Args:
-    //      medicines (List<Medicine>): Список лекарств, который нужно отсортировать
-    @Override
-    public void sortEvenShelfLifeDays(List<Medicine> medicines) {
-        // Получаем список только объектов класса с четными значениями
-        // числового поля "shelfLifeDays" и список их индексов в списке medicines
-        EvenMedicines evenMedicines = SortStrategy.getEvenShelfLifeDays(medicines);
-        List<Medicine> medicinesEven = evenMedicines.medicines();
-        List<Integer> indicesEven = evenMedicines.indices();
-        // Выбираем стратегию сортировки пузырьком
-        SortStrategy sortStrategy = SortStrategyRegistry.get("bubble");
-        // Создаем сортировщика
-        Sorter sorter = new Sorter(sortStrategy);
-        // Сортируем по сроку годности
-        sorter.sort(medicinesEven, MedicineComparators.byShelfLifeDays);
-        // Расставляем отсортированные элементы
-        for(int i = 0; i < medicinesEven.size(); i++) {
-            medicines.set(indicesEven.get(i), medicinesEven.get(i));
-        }
-    }
-
     // Метод "поменять 2 элемента списка местами"
     // Args:
     //      list (List<T>): Список, в котором нужно поменять местами элементы
