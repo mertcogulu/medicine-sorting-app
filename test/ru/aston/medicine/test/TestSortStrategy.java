@@ -157,22 +157,22 @@ class TestSortStrategy {
         sorter.sort(medicines, MedicineComparators.byPrice);
 
         // Получим список полей "price" объектов списка medicines в отсортированном по полю "price" порядке
-        List<Integer> actualPrice = medicines.stream()
+        List<Double> actualPrice = medicines.stream()
                 .map(Medicine::price)
                 .toList();
 
         // Создаем истинный список полей "price"
-        List<Integer> truePrice = List.of(
-                56,
-                78,
-                200,
-                250,
-                255,
-                285,
-                653,
-                684,
-                1000,
-                2500
+        List<Double> truePrice = List.of(
+                56.0,
+                78.0,
+                200.0,
+                250.0,
+                255.0,
+                285.0,
+                653.0,
+                684.0,
+                1000.0,
+                2500.0
         );
 
         // Сравниваем истинный список полей "price" с реальным

@@ -50,7 +50,7 @@ public class MedicineComparators {
         // Метод сравнения двух объектов
         @Override
         public int compare(Medicine m1, Medicine m2) {
-            return Integer.compare(m1.price(), m2.price());
+            return Double.compare(m1.price(), m2.price());
         }
 
     };

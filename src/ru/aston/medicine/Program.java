@@ -11,16 +11,16 @@ public class Program {
     public static void main(String[] args) {
 
         // Создаём 10 разных лекарств
-        Medicine m1  = new Medicine("Азбука",        5,  30);
-        Medicine m2  = new Medicine("Бегемот",       10, 20);
-        Medicine m3  = new Medicine("Вилка",         20, 10);
-        Medicine m4  = new Medicine("Дети",          30, 5);
-        Medicine m5  = new Medicine("Ёжик",          7,  45);
-        Medicine m6  = new Medicine("Жаропонижающее",3,  99);
-        Medicine m7  = new Medicine("Здоровье",      60, 15);
-        Medicine m8  = new Medicine("Иммунал",       90, 250);
-        Medicine m9  = new Medicine("Корень солодки", 120, 80);
-        Medicine m10 = new Medicine("Лимон",         14, 60);
+        Medicine m1  = new Medicine("Азбука",        5,  30.00);
+        Medicine m2  = new Medicine("Бегемот",       10, 20.00);
+        Medicine m3  = new Medicine("Вилка",         20, 10.00);
+        Medicine m4  = new Medicine("Дети",          30, 5.99);
+        Medicine m5  = new Medicine("Ёжик",          7,  45.99);
+        Medicine m6  = new Medicine("Жаропонижающее",3,  99.99);
+        Medicine m7  = new Medicine("Здоровье",      60, 15.99);
+        Medicine m8  = new Medicine("Иммунал",       90, 250.00);
+        Medicine m9  = new Medicine("Корень солодки", 120, 80.87);
+        Medicine m10 = new Medicine("Лимон",         14, 60.67);
 
         // Кладём все лекарства в список
         List<Medicine> medicines = new ArrayList<>();
