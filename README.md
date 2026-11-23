@@ -8,7 +8,7 @@
 `Medicine` (Лекарство):
 - `name` — название (String)
 - `shelfLifeDays` — срок годности в днях (int)
-- `price` — цена (int)
+- `price` — цена (double)
 
 Объект создаётся через паттерн Builder.
 
