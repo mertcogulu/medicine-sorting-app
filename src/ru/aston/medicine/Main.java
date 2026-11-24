@@ -1,7 +1,10 @@
 package ru.aston.medicine;
 
+import ru.aston.medicine.ui.ConsoleMenu;
+
 public class Main {
-    static void main(String[] args) {
-        System.out.println("Medicine sorting app - v0.1");
+
+    public static void main(String[] args) {
+        new ConsoleMenu().run();
     }
 }
